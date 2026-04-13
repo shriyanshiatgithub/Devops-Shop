@@ -63,7 +63,12 @@ export default function Products() {
                 <span style={styles.category}>{p.category || 'General'}</span>
                 <h3 style={styles.name}>{p.name}</h3>
                 <div style={styles.footer}>
-                  <span style={styles.price}>${p.price.toFixed(2)}</span>
+                  <span style={styles.price}>
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
+                      currency: 'INR'
+                    }).format(p.price)}
+                  </span>
                   <span style={p.stock > 0 ? styles.inStock : styles.outStock}>
                     {p.stock > 0 ? `${p.stock} left` : 'Out of stock'}
                   </span>

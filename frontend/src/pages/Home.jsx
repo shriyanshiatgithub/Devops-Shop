@@ -10,20 +10,22 @@ const PIPELINE_NODES = [
   { id: 'dev',     label: 'Dev',     icon: '💻', color: '#38bdf8', desc: 'Write code in WSL2' },
   { id: 'git',     label: 'Git',     icon: '🔀', color: '#a78bfa', desc: 'Push to GitHub' },
   { id: 'jenkins', label: 'Jenkins', icon: '⚙️', color: '#f59e0b', desc: 'CI/CD pipeline' },
-  { id: 'docker',  label: 'Docker',  icon: '🐳', color: '#38bdf8', desc: 'Build & push image' },
-  { id: 'k8s',     label: 'K8s',     icon: '☸️', color: '#a78bfa', desc: 'Deploy to cluster' },
-  { id: 'monitor', label: 'Monitor', icon: '📊', color: '#22c55e', desc: 'Prometheus + Grafana' },
-  { id: 'backup',  label: 'Backup',  icon: '💾', color: '#f59e0b', desc: 'Automated backups' },
+  { id: 'docker',  label: 'Docker',  icon: '🐳', color: '#f12bc7', desc: 'Build & push image' },
+  { id: 'k8s',     label: 'K8s',     icon: '☸️', color: '#d66b14', desc: 'Deploy to cluster' },
+  { id: 'monitor', label: 'Monitor', icon: '📊', color: '#bd1414', desc: 'Prometheus + Grafana' },
+  { id: 'backup',  label: 'Backup',  icon: '💾', color: '#088a0e', desc: 'Automated backups' },
 ];
 
 const TOOLS = [
   {
     id: 'jenkins', title: 'Jenkins CI/CD', icon: '⚙️', color: '#f59e0b',
     points: [
-      'Automated pipeline on every git push',
-      'Stages: Test → Build → Push → Deploy',
-      'DockerHub integration for image registry',
-      'kubectl deploy to Kubernetes',
+      `Automates CI/CD pipeline for faster development`,
+      `Triggers automatically on every Git push`,
+      `Runs stages: Test → Build → Push → Deploy`,
+      `Builds and packages application using Docker`,
+      `Pushes images to DockerHub for storage`,
+      `Deploys applications to Kubernetes using kubectl 🚀`,
     ],
     terminal: [
       '$ git push origin main',
@@ -38,10 +40,12 @@ const TOOLS = [
   {
     id: 'docker', title: 'Docker & Compose', icon: '🐳', color: '#38bdf8',
     points: [
-      'Multi-stage Dockerfiles for lean images',
-      'Docker Compose for local dev stack',
-      '5 services: backend, frontend, postgres, redis, jenkins',
-      'Health checks on all services',
+      `Containerizes applications for consistent environments`,
+      `Uses multi-stage builds for optimized, lightweight images`,
+      `Docker Compose manages multi-service local setup`,
+      `Runs services: backend, frontend, postgres, redis, jenkins`,
+      `Ensures isolation and portability across environments`,
+      `Simplifies dependency management and scaling`,
     ],
     terminal: [
       '$ docker-compose up --build',
@@ -55,10 +59,12 @@ const TOOLS = [
   {
     id: 'k8s', title: 'Kubernetes', icon: '☸️', color: '#a78bfa',
     points: [
-      'Deployments with 2 replicas for high availability',
-      'StatefulSet for PostgreSQL with PersistentVolumeClaim',
-      'Ingress routing /api to backend, / to frontend',
-      'ConfigMaps and Secrets management',
+      `Orchestrates containerized applications at scale`,
+      `Manages deployments, services, and pods`,
+      `Ensures high availability with auto-healing`,
+      `Handles load balancing and service discovery`,
+      `Uses kubectl for deployment and management`,
+      `Enables rolling updates with zero downtime`,
     ],
     terminal: [
       '$ kubectl apply -k k8s/base/',
@@ -210,7 +216,7 @@ export default function Home() {
           <h2 style={S.secTitle}>
             <span style={{ color: '#38bdf8' }}>Live</span> DevOps Pipeline
           </h2>
-          <p style={S.secSub}>Scroll to move the packet through the pipeline</p>
+          <p style={S.secSub}>Scroll to trace the journey of code from development to deployment</p>
           <div style={S.track}>
             <div style={S.trackLine} />
             <div ref={orbRef} style={S.orb}>
@@ -414,7 +420,7 @@ export default function Home() {
             }}
           >
 
-            {/* 🔥 INSANE AVATAR */}
+            {/*  AVATAR */}
             <div style={S.avatarContainer}>
 
               {/* aura */}
@@ -467,7 +473,7 @@ export default function Home() {
               fontFamily: 'JetBrains Mono, monospace',
               fontSize: '0.9rem'
             }}>
-              DevOps Engineer · Kubernetes & CI/CD Enthusiast
+              DevOps Engineer · Kubernetes · CI/CD · Docker · Cloud
             </p>
 
             <p style={{
@@ -477,7 +483,7 @@ export default function Home() {
               fontSize: '0.95rem'
             }}>
               This project demonstrates a complete production DevOps workflow —
-              from writing code in WSL2 to deploying on Kubernetes with an automated Jenkins pipeline.
+              from writing code,Building Image to deploying on Kubernetes with an automated Jenkins pipeline.
             </p>
 
             <a
